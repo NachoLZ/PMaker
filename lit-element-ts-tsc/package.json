@@ -10,10 +10,11 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "start": "web-dev-server --open demo/ --node-resolve",
+    "start": "web-dev-server --open demo/index.html --node-resolve",
     "start:watch": "web-dev-server --open demo/ --node-resolve --watch",
     "test": "yarn build && web-test-runner tsc-out/test/**/*.test.js --node-resolve",
-    "test:watch": "web-test-runner dist/test/**/*.test.js --node-resolve --watch"
+    "test:watch": "web-test-runner dist/test/**/*.test.js --node-resolve --watch",
+    "compile-typescript": "tsc"
   },
   "dependencies": {
     "@kor-ui/kor": "^1.4.1",
@@ -29,6 +30,6 @@
     "@web/dev-server": "0.0.15",
     "@web/test-runner": "0.9.6",
     "tslib": "2.0.3",
-    "typescript": "4.0.5"
+    "typescript": "^4.1.3"
   }
 }

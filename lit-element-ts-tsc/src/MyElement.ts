@@ -1,6 +1,6 @@
 import { html, css, LitElement, property } from 'lit-element';
 
-import '@material/mwc-button'
+import '@material/mwc-button';
 import '@material/mwc-list/mwc-list.js';
 import '@material/mwc-list/mwc-list-item.js';
 
@@ -23,6 +23,7 @@ export class MyElement extends LitElement {
 
   render() {
     return html`
+      <h1>HOLA<h1>
       <h2>${this.title} Nr. ${this.counter}!</h2>
       
       <mwc-button @click=${this.__increment}>increment</mwc-button>
