@@ -124,3 +124,10 @@ body {
     color: rgb(0, 0, 0);
     font-size: 18px;
 }
+
+.stock-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+  }
