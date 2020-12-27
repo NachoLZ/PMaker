@@ -23,8 +23,9 @@ body {
     margin: 0px auto;
     padding: 50px;
     border-radius: 16px;
-    box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
+    box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.1), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
 }
+
 
 .c-player > h4 {
     color: rgb(231, 27, 27);
@@ -32,6 +33,12 @@ body {
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
+}
+
+.c-player .min-player {
+    color: rgb(231, 27, 27);
+    border: 0px;
+    background: transparent;
 }
 
 .c-player > p {
@@ -57,7 +64,7 @@ body {
     width: 100%;
     max-width: 250px;
     border-radius: 50%;
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8), -6px -6px 12px rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.4);
 }
 
 .c-player--details .details-img:after {
@@ -75,7 +82,7 @@ body {
 .c-player--details .details-title {
     color: rgb(0, 0, 0);
     font-size: 28px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.4);
+    /*text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.4);*/
     text-align: center;
     margin-bottom: 10px;
 }
@@ -83,7 +90,7 @@ body {
 .c-player--details .details-artist {
     color: rgb(128, 127, 127);
     font-size: 20px;
-    text-shadow: 2px 2px 4px rgba(102, 102, 102, 0.8), -2px -2px 4px rgba(255,255,255,0.4);
+    /*text-shadow: 2px 2px 4px rgba(102, 102, 102, 0.8), -2px -2px 4px rgba(255,255,255,0.4);*/
     text-align: center;
     margin-bottom: 20px;
 }
@@ -100,7 +107,7 @@ body {
     margin: 0 30px;
     padding: 20px;
     border-radius: 50%;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.4), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
     border: none;
     outline: none;
     background-color: #e92d2d;

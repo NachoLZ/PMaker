@@ -1,10 +1,16 @@
 import React, {useState, useRef, useEffect} from 'react'
 import Controls from './Controls';
 import Details from './Details';
+import Playlist from './Playlist';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 function Player(props) {
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [showPlaylist, setShowPlaylist] = useState(false)
+    const HandleClick = () => setShowPlaylist(true)
+
 
     useEffect(() => {
         if (isPlaying) {
@@ -40,8 +46,15 @@ function Player(props) {
         }
     }
 
+    
+
     return (
+
         <div className="c-player">
+            <button className="min-player" onClick={HandleClick}>
+                {showPlaylist ? <Playlist /> : null}
+                <FontAwesomeIcon icon={faAngleDown} size = '2x'/>
+            </button>    
             <audio src={props.songs[props.currentSongIndex].src} ref={audioEl}></audio>
             <h4>Reproduciendo desde</h4>
             <Details song={props.songs[props.currentSongIndex]} />
