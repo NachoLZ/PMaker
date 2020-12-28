@@ -18,6 +18,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Controls from './Controls';
 import Details from './Details';
 import Player from './Player';
+import canciones from './canciones'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function generate(element) {
-  return [0, 1, 2].map((value) =>
+  return [0].map((value) =>
     React.cloneElement(element, {
       key: value,
     }),
@@ -50,14 +51,15 @@ function Playlist(props) {
           </Typography>
           <div className={classes.demo}>
             <List dense={dense}>
-              {generate(
+              {canciones.map((data)=>
+              generate(
                 <ListItem>
                   <ListItemText
-                    primary="Single-line item"
-                    secondary="Secondary text"
+                    primary={data.title}
+                    secondary={data.artist}
                   />
                 </ListItem>,
-              )}
+              ))}
             </List>
           </div>
 
