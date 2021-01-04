@@ -19,6 +19,9 @@ import Controls from './Controls';
 import Details from './Details';
 import Player from './Player';
 import canciones from './canciones'
+import canciones2 from './canciones2'
+import canciones3 from './canciones3'
+import canciones4 from './canciones4'
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
@@ -51,19 +54,76 @@ function generate(element) {
   );
 }
 
-function playlist_icon(numero_lista){
-  return(
-  <div class="wrapper">
-        <div class="botonLista" align='center'>
-          <IconButton disabled aria-label="add an alarm">
-            <MusicNoteIcon />
-          </IconButton>
-        </div>
-        <div class="textoLista">
-          Lista {numero_lista}
-        </div>
-      </div>)
+
+
+function selectPl(active){
+  switch (active){
+    case 1: 
+      return (
+        canciones.map((data)=>
+          generate(
+            <ListItem>
+              <ListItemText
+                disableTypography
+                primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
+                secondary={data.artist}
+              />
+            </ListItem>,
+          )
+        )
+      )
+    case 1:
+      return (
+        canciones2.map((data)=>
+          generate(
+            <ListItem>
+              <ListItemText
+                disableTypography
+                primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
+                secondary={data.artist}
+              />
+            </ListItem>,
+          )
+        )
+      )
+    case 3:
+      return (
+        canciones3.map((data)=>
+          generate(
+            <ListItem>
+              <ListItemText
+                 disableTypography
+                 primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
+                 secondary={data.artist}
+              />
+            </ListItem>,
+          )
+        )
+      )
+    case 4:
+      return (
+        canciones4.map((data)=>
+          generate(
+            <ListItem>
+              <ListItemText
+                disableTypography
+                primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
+                secondary={data.artist}
+              />
+            </ListItem>,
+          )
+        )
+      )
+  }
 }
+
+
+
+
+
+
+
+
 
 
 {/*function UseForceUpdate(){
@@ -81,6 +141,24 @@ function Playlist(props) {
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [count, setCount] = useState(0);
+  let [Plactive, setPlactive] = React.useState(1);
+
+
+  function playlist_icon(numero_lista){
+    return(
+    <div class="wrapper" onClick={() => setPlactive(numero_lista)}>
+          <div class="botonLista" align='center'>
+            <IconButton aria-label="add an alarm">
+              <MusicNoteIcon />
+            </IconButton>
+          </div>
+          <div class="textoLista">
+            Lista {numero_lista}
+          </div>
+        </div>)
+  }
+  
+
   function change_options(nueva_lista){
     if(count == 3){
       alert("No puedes agregar más\nDebes eliminar una lista.")
@@ -111,18 +189,9 @@ function Playlist(props) {
         <div class='wrapper'><Button onClick = {myfunctionx}  >Descargar</Button></div>
       </Container>
 
-          <div className={classes.demo}>
+         <div className={classes.demo}>
             <List dense={dense}>
-              {canciones.map((data)=>
-              generate(
-                <ListItem>
-                  <ListItemText
-                    disableTypography
-                    primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
-                    secondary={data.artist}
-                  />
-                </ListItem>,
-              ))}
+              {selectPl(Plactive)}
             </List>
           </div>
 

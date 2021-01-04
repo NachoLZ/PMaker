@@ -1,22 +1,22 @@
-const canciones = [ 
+const canciones2 = [ 
     {
-    title: "Forget me too ft. Halsey",
-    artist: "Machine Gun Kelly",
+    title: "Cancion1Playlist4",
+    artist: "ArtistaPrueba2",
     img_src: "./images/song-1.jpg",
     src: "./music/on-n-on.mp3",
   },
   {
-    title: "Song 2",
-    artist: "Artist 2",
+    title: "Cancion2Playlist4",
+    artist: "Artist 2222222",
     img_src: "./images/song-2.jpg",
     src: "./music/somebody-new.mp3",
   },
   {
-    title: "PruebaPl2",
+    title: "Cancion3Playlist4",
     artist: "prubea123",
     img_src: "./images/song-3.jpg",
     src: "./music/on-n-on.mp3",
   }
 ]
 
-export default canciones;
+export default canciones2;
