@@ -215,3 +215,20 @@ body {
     color: rgb(0, 0, 0);
     font-size: 18px;
 }
+
+.wrapper {
+    display: inline-block;
+    padding: 5px;
+}
+
+.textoLista {
+    color: #919191;
+}
+
+.wrapper:hover {
+    background: #dd6565;
+}
+
+.botonesPlaylist:hover {
+    background: #dd6565;
+}

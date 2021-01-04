@@ -41,6 +41,6 @@
     ]
   },
   "devDependencies": {
-    "@web/dev-server": "^0.1.2"
+    "@web/dev-server": "^0.1.3"
   }
 }

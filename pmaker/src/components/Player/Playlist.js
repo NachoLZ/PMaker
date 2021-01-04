@@ -19,6 +19,10 @@ import Controls from './Controls';
 import Details from './Details';
 import Player from './Player';
 import canciones from './canciones'
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,16 +50,72 @@ function Playlist(props) {
 
   return (
     <div className={classes.root}>
-          <Typography variant="h6" className={classes.title}>
-            Text only
-          </Typography>
+      <Container>
+      <div class="wrapper">
+        <div class="botonLista" align='center'>
+          <IconButton disabled aria-label="add an alarm">
+            <MusicNoteIcon />
+          </IconButton>
+        </div>
+        <div class="textoLista">
+          Lista 1
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="botonLista" align='center'>
+          <IconButton disabled aria-label="add an alarm">
+            <MusicNoteIcon />
+          </IconButton>
+        </div>
+        <div class="textoLista">
+          Lista 2
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="botonLista" align='center'>
+          <IconButton disabled aria-label="add an alarm">
+            <MusicNoteIcon />
+          </IconButton>
+        </div>
+        <div class="textoLista">
+          Lista 3
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="botonLista" align='center'>
+          <IconButton disabled aria-label="add an alarm">
+            <MusicNoteIcon />
+          </IconButton>
+        </div>
+        <div class="textoLista">
+          Lista 4
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="botonLista" align='center'>
+          <IconButton disabled aria-label="add an alarm">
+            <AddIcon />
+          </IconButton>
+        </div>
+        <div class="textoLista">
+          Nueva
+        </div>
+      </div>
+      </Container>
+      <Container>
+        <div class='wrapper'><Button disabled >Compartir</Button></div>
+        <div class='wrapper'><Button disabled >Editar</Button></div>
+        <div class='wrapper'><Button disabled >Descargar</Button></div>
+      </Container>
+
           <div className={classes.demo}>
             <List dense={dense}>
               {canciones.map((data)=>
               generate(
                 <ListItem>
                   <ListItemText
-                    primary={data.title}
+                    disableTypography
+                    primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
                     secondary={data.artist}
                   />
                 </ListItem>,
