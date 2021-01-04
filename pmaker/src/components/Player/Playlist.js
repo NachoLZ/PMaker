@@ -132,40 +132,44 @@ function selectPl(active){
 }*/}
 
 
-const options = [1];
+const options = ["Ejemplo"];
 
 
 function Playlist(props) {
 
-  const numero = 1
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [count, setCount] = useState(0);
   let [Plactive, setPlactive] = React.useState(1);
 
 
-  function playlist_icon(numero_lista){
+  function playlist_icon(nombre_lista){
     return(
-    <div class="wrapper" onClick={() => setPlactive(numero_lista)}>
+    <div class="wrapper" onClick={() => setPlactive(options.findIndex(todo => todo === nombre_lista)+1)}>
           <div class="botonLista" align='center'>
             <IconButton aria-label="add an alarm">
               <MusicNoteIcon />
             </IconButton>
           </div>
           <div class="textoLista">
-            Lista {numero_lista}
+            {nombre_lista}
           </div>
         </div>)
   }
   
+  function create_playlist(){
+    const enteredName = prompt('Nombre de la lista');
+    if(enteredName != null){
+      
+    change_options(enteredName);}
+  }
 
   function change_options(nueva_lista){
-    if(count == 3){
+    if(count == 4){
       alert("No puedes agregar más\nDebes eliminar una lista.")
-      nueva_lista = 2
     }
-    options.push(nueva_lista+2);
-    setCount(nueva_lista+1);
+    else{
+    setCount(options.push(nueva_lista));}
   }
   return (
     <div className={classes.root}>
@@ -173,7 +177,7 @@ function Playlist(props) {
       {options.map(playlist_icon)}
       <div class="wrapper">
         <div class="botonLista" align='center'>
-          <IconButton onClick ={() => change_options(count)} aria-label="add an alarm">
+          <IconButton onClick ={() => create_playlist()} aria-label="add an alarm">
             <AddIcon />
           </IconButton>
         </div>
@@ -187,6 +191,7 @@ function Playlist(props) {
         <div class='wrapper'><Button disabled >Compartir</Button></div>
         <div class='wrapper'><Button disabled >Editar</Button></div>
         <div class='wrapper'><Button onClick = {myfunctionx}  >Descargar</Button></div>
+        <div class='wrapper'><Button disabled  >Eliminar</Button></div>
       </Container>
 
          <div className={classes.demo}>
