@@ -23,6 +23,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import AddIcon from '@material-ui/icons/Add';
+import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+function myfunctionx() {
+  alert("Playlist Descargada")
+}
+
+
 function generate(element) {
   return [0].map((value) =>
     React.cloneElement(element, {
@@ -44,56 +51,51 @@ function generate(element) {
   );
 }
 
+function playlist_icon(numero_lista){
+  return(
+  <div class="wrapper">
+        <div class="botonLista" align='center'>
+          <IconButton disabled aria-label="add an alarm">
+            <MusicNoteIcon />
+          </IconButton>
+        </div>
+        <div class="textoLista">
+          Lista {numero_lista}
+        </div>
+      </div>)
+}
+
+
+{/*function UseForceUpdate(){
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => value + 1); // update the state to force render
+}*/}
+
+
+const options = [1];
+
+
 function Playlist(props) {
+
+  const numero = 1
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
-
+  const [count, setCount] = useState(0);
+  function change_options(nueva_lista){
+    if(count == 3){
+      alert("No puedes agregar más\nDebes eliminar una lista.")
+      nueva_lista = 2
+    }
+    options.push(nueva_lista+2);
+    setCount(nueva_lista+1);
+  }
   return (
     <div className={classes.root}>
       <Container>
+      {options.map(playlist_icon)}
       <div class="wrapper">
         <div class="botonLista" align='center'>
-          <IconButton disabled aria-label="add an alarm">
-            <MusicNoteIcon />
-          </IconButton>
-        </div>
-        <div class="textoLista">
-          Lista 1
-        </div>
-      </div>
-      <div class="wrapper">
-        <div class="botonLista" align='center'>
-          <IconButton disabled aria-label="add an alarm">
-            <MusicNoteIcon />
-          </IconButton>
-        </div>
-        <div class="textoLista">
-          Lista 2
-        </div>
-      </div>
-      <div class="wrapper">
-        <div class="botonLista" align='center'>
-          <IconButton disabled aria-label="add an alarm">
-            <MusicNoteIcon />
-          </IconButton>
-        </div>
-        <div class="textoLista">
-          Lista 3
-        </div>
-      </div>
-      <div class="wrapper">
-        <div class="botonLista" align='center'>
-          <IconButton disabled aria-label="add an alarm">
-            <MusicNoteIcon />
-          </IconButton>
-        </div>
-        <div class="textoLista">
-          Lista 4
-        </div>
-      </div>
-      <div class="wrapper">
-        <div class="botonLista" align='center'>
-          <IconButton disabled aria-label="add an alarm">
+          <IconButton onClick ={() => change_options(count)} aria-label="add an alarm">
             <AddIcon />
           </IconButton>
         </div>
@@ -101,11 +103,12 @@ function Playlist(props) {
           Nueva
         </div>
       </div>
+
       </Container>
       <Container>
         <div class='wrapper'><Button disabled >Compartir</Button></div>
         <div class='wrapper'><Button disabled >Editar</Button></div>
-        <div class='wrapper'><Button disabled >Descargar</Button></div>
+        <div class='wrapper'><Button onClick = {myfunctionx}  >Descargar</Button></div>
       </Container>
 
           <div className={classes.demo}>
