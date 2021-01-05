@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
 import Controls from './Controls';
-import MiniControls from './MiniControls';
 import Details from './Details';
 import MiniDetails from './MiniDetails';
 import Playlist from './Playlist';

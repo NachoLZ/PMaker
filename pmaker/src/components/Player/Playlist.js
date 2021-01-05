@@ -2,22 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import FolderIcon from '@material-ui/icons/Folder';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Controls from './Controls';
-import Details from './Details';
-import Player from './Player';
 import canciones from './canciones'
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
@@ -112,10 +100,12 @@ function Playlist(props) {
   }
 
   function playlist_icon(nombre_lista){
+    if(options[numero_index]  == nombre_lista){
     return(
     <div class="wrapper" onClick={() => change_canciones(nombre_lista)}>
           <div class="botonLista" align='center'>
-            <IconButton aria-label="add an alarm">
+            <IconButton style ={{background:"#F00"}}
+             aria-label="add an alarm">
               <MusicNoteIcon />
             </IconButton>
           </div>
@@ -124,6 +114,22 @@ function Playlist(props) {
           </div>
         </div>)
   }
+  else{
+    return(
+    <div class="wrapper" onClick={() => change_canciones(nombre_lista)}>
+          <div class="botonLista" align='center'>
+            <IconButton 
+             aria-label="add an alarm">
+              <MusicNoteIcon />
+            </IconButton>
+          </div>
+          <div class="textoLista">
+            {nombre_lista.nombre}
+          </div>
+        </div>)
+  }
+
+}
   
   function create_playlist(){
     const enteredName = prompt('Nombre de la lista');
@@ -137,15 +143,11 @@ function Playlist(props) {
     return(canciones[canciones.findIndex(todo => todo.title === lista.value)])
   }
 
-  function change_options(nueva_lista){
-    if(count == 4){
-      alert("No puedes agregar más\nDebes eliminar una lista.")
-    }
-    else{
-      setmodal(false)
-      const newlist = selected.map(obtener_canciones)
-      setCount(options.push({nombre:nombrex,songs:newlist}));}
-  }
+  function change_options(){
+    setmodal(false)
+    const newlist = selected.map(obtener_canciones)
+    setCount(options.push({nombre:nombrex,songs:newlist}));}
+  
 
   function eliminar_playlist(){
     options.splice(numero_index, 1);

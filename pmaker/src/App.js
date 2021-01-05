@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import Player from './components/Player/Player';
 import canciones from './components/Player/canciones'
-import Playlist from './components/Player/Playlist';
+
 
 function App() {
 
