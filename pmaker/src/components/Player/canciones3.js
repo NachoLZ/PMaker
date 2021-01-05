@@ -1,4 +1,5 @@
-const canciones2 = [ 
+import { useState } from 'react';
+const canciones3 = [
     {
     title: "Cancion1Playlist3",
     artist: "ArtistaPrueba2",
@@ -19,4 +20,4 @@ const canciones2 = [
   }
 ]
 
-export default canciones2;
+export default canciones3;

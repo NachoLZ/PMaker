@@ -28,6 +28,7 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import AddIcon from '@material-ui/icons/Add';
 import { useState } from 'react';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -56,103 +57,66 @@ function generate(element) {
 
 
 
-function selectPl(active){
-  switch (active){
-    case 1: 
-      return (
-        canciones.map((data)=>
-          generate(
-            <ListItem>
-              <ListItemText
-                disableTypography
-                primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
-                secondary={data.artist}
-              />
-            </ListItem>,
-          )
-        )
-      )
-    case 1:
-      return (
-        canciones2.map((data)=>
-          generate(
-            <ListItem>
-              <ListItemText
-                disableTypography
-                primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
-                secondary={data.artist}
-              />
-            </ListItem>,
-          )
-        )
-      )
-    case 3:
-      return (
-        canciones3.map((data)=>
-          generate(
-            <ListItem>
-              <ListItemText
-                 disableTypography
-                 primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
-                 secondary={data.artist}
-              />
-            </ListItem>,
-          )
-        )
-      )
-    case 4:
-      return (
-        canciones4.map((data)=>
-          generate(
-            <ListItem>
-              <ListItemText
-                disableTypography
-                primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
-                secondary={data.artist}
-              />
-            </ListItem>,
-          )
-        )
-      )
-  }
-}
 
 
 
 
 
 
-
-
-
-
-{/*function UseForceUpdate(){
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue(value => value + 1); // update the state to force render
-}*/}
-
-
-const options = ["Ejemplo"];
+var options = [{nombre: "Ejemplo", songs:canciones}];
 
 
 function Playlist(props) {
-
+  
+  const [numero_index,setIndex] = useState(0)
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [count, setCount] = useState(0);
-  let [Plactive, setPlactive] = React.useState(1);
+  const [Canciones, setCanciones] = useState(canciones);
+  function remove_song(list){
+    let filteredArray = options[numero_index].songs.filter(item => item !== list);
+    options[numero_index].songs = filteredArray 
+    setCanciones(filteredArray);
+  }
+  
+  function selectPl(){
+    return(       
+    Canciones.map((data)=>
+            generate(
+              <Container>
+              <ListItem>
+                <ListItemText
 
+                  disableTypography
+                  primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
+                  secondary={data.artist}
+                />
+                <IconButton onClick ={() => remove_song(data)} aria-label="add an alarm">
+                <DeleteIcon />
+                </IconButton>
+              </ListItem>,
+              </Container>
+            )
+          ) )     
+    }
+  
+
+  function change_canciones(nombre_lista){
+    setCanciones(nombre_lista.songs)
+    setIndex(options.findIndex(todo => todo.nombre === nombre_lista.nombre))
+    
+  }
 
   function playlist_icon(nombre_lista){
     return(
-    <div class="wrapper" onClick={() => setPlactive(options.findIndex(todo => todo === nombre_lista)+1)}>
+    <div class="wrapper" onClick={() => change_canciones(nombre_lista)}>
           <div class="botonLista" align='center'>
             <IconButton aria-label="add an alarm">
               <MusicNoteIcon />
             </IconButton>
           </div>
           <div class="textoLista">
-            {nombre_lista}
+            {nombre_lista.nombre}
           </div>
         </div>)
   }
@@ -169,8 +133,16 @@ function Playlist(props) {
       alert("No puedes agregar más\nDebes eliminar una lista.")
     }
     else{
-    setCount(options.push(nueva_lista));}
+    setCount(options.push({nombre:nueva_lista,songs:canciones}));}
   }
+
+  function eliminar_playlist(){
+    options.splice(numero_index, 1);
+    
+    
+    setCount(count-1)
+  }
+
   return (
     <div className={classes.root}>
       <Container>
@@ -187,16 +159,16 @@ function Playlist(props) {
       </div>
 
       </Container>
-      <Container>
-        <div class='wrapper'><Button disabled >Compartir</Button></div>
-        <div class='wrapper'><Button disabled >Editar</Button></div>
-        <div class='wrapper'><Button onClick = {myfunctionx}  >Descargar</Button></div>
-        <div class='wrapper'><Button disabled  >Eliminar</Button></div>
+      <Container class='opciones'>
+        <div ><Button class='opciones' disabled >Compartir</Button></div>
+        <div ><Button class='opciones' disabled >Editar</Button></div>
+        <div ><Button class='opciones' onClick = {myfunctionx}  >Descargar</Button></div>
+        <div ><Button class='opciones' onClick = {() => eliminar_playlist()} >Eliminar</Button></div>
       </Container>
 
          <div className={"lista"}>
             <List dense={dense}>
-              {selectPl(Plactive)}
+              {selectPl()}
             </List>
           </div>
 

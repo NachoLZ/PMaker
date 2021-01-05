@@ -20,7 +20,6 @@ body {
     display: block;
     background-color: white;
     display: block;
-    margin: 0px auto;
     padding: 50px;
     border-radius: 16px;
     box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.1), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
@@ -174,10 +173,24 @@ body {
 }
 
 
-
+.opciones{
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    cursor:pointer;
+    margin: 9px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #e92d2d;
+    
+}
 .lista {
     overflow-y: scroll;
-    height: 400px;
+    height: 430px;
+    width: 350px;
+    scroll-behavior: smooth;
+
 }
 
 .c-player--minicontrols .miniplay-btn {
