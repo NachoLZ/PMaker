@@ -53,6 +53,9 @@ function RenderMini(props){
     function handler2(argument) {
         props.actualice(argument)
       }
+    function handler_index(argument) {
+        props.cambiar_index(argument)
+      }
 
     
 
@@ -60,6 +63,7 @@ function RenderMini(props){
 
         <div className="c-player"> 
             <Playlist
+            cambiar_index = {handler_index}
             actualizar = {handler2}/>
             <div className="min-player">       
                 <audio src={props.songs[props.currentSongIndex].src} ref={audioEl}></audio>
@@ -130,6 +134,9 @@ function Player(props) {
     function handler1(argument) {
         props.cambiar(argument)
       }
+      function handlerindex(argument) {
+        props.cambiar_index(argument)
+      }
     /*const audioEl = useRef(null);*/
     const [isPlaying, setIsPlaying] = useState(false);
     const [showPlaylist, setShowPlaylist] = useState(true);
@@ -148,13 +155,14 @@ function Player(props) {
             </button>
             
   
-            {showPlaylist ? <RenderMini             actualice = {handler1}        
+            {showPlaylist ? <RenderMini             cambiar_index = {handlerindex}
+                                                    actualice = {handler1}        
                                                     currentSongIndex={props.currentSongIndex} 
                                                     setCurrentSongIndex={props.setCurrentSongIndex} 
                                                     nextSongIndex={props.nextSongIndex} 
                                                     songs={props.songs}
                                                     isPlaying={props.isPlaying}/> 
-                          : <RenderFull             actualice = {handler1}             
+                          : <RenderFull                          
                                                     currentSongIndex={props.currentSongIndex} 
                                                     setCurrentSongIndex={props.setCurrentSongIndex} 
                                                     nextSongIndex={props.nextSongIndex} 

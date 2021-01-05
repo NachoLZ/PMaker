@@ -13,6 +13,9 @@ function App() {
   function handlerx(argument) {
     setCanciones(argument)
   }
+  function handler_index(argument) {
+    setCurrentSongIndex(argument)
+  }
   useEffect(() => {
     setNextSongIndex(() => {
       if (currentSongIndex + 1 > Canciones.length - 1) {
@@ -28,6 +31,7 @@ function App() {
   return (
     <div className="App">
       <Player 
+        cambiar_index = {handler_index}
         cambiar = {handlerx} 
         currentSongIndex={currentSongIndex} 
         setCurrentSongIndex={setCurrentSongIndex} 

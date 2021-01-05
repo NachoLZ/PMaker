@@ -71,22 +71,30 @@ function Playlist(props) {
     setCanciones(filteredArray);
     props.actualizar(filteredArray)
   }
+
+  function actualizar_index(cancion){
+    props.cambiar_index(options[numero_index].songs.findIndex(todo => todo.title === cancion.title))
+  }
   
   function selectPl(){
     return(       
     Canciones.map((data)=>
             generate(
+              <IconButton onClick = {() => actualizar_index(data)}>
               <ListItem>
+                
                 <ListItemText
-
+                  
                   disableTypography
                   primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
                   secondary={data.artist}
                 />
+                 
                 <IconButton onClick ={() => remove_song(data)} aria-label="add an alarm">
                 <DeleteIcon />
                 </IconButton>
               </ListItem>
+              </IconButton>
             )
           ) )  
     }
