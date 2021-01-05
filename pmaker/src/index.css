@@ -172,17 +172,24 @@ body {
     
 }
 
-
-.opciones{
+.opciones-cont{
     display: flex;
     flex-direction: row;
-    font-size: 15px;
+    margin-top: 10px;
+}
+
+
+.opciones{
+    
+    font-size: 14px;
     cursor:pointer;
     margin: 9px;
     border: none;
     outline: none;
     background-color: transparent;
-    color: #e92d2d;
+    font-weight: bold;
+    color:gray;
+    
     
 }
 

@@ -157,11 +157,11 @@ function Playlist(props) {
       </div>
 
       </Container>
-      <Container class='opciones'>
-        <div ><Button class='opciones' disabled >Compartir</Button></div>
-        <div ><Button class='opciones' disabled >Editar</Button></div>
-        <div ><Button class='opciones' onClick = {myfunctionx}  >Descargar</Button></div>
-        <div ><Button class='opciones' onClick = {() => eliminar_playlist()} >Eliminar</Button></div>
+      <Container class='opciones-cont'>
+        <Button class='opciones' disabled >Compartir</Button>      
+        <Button class='opciones' disabled >Editar</Button>
+        <Button class='opciones' onClick = {myfunctionx}  >Descargar</Button>
+        <Button class='opciones' onClick = {() => eliminar_playlist()} >Eliminar</Button>
       </Container>
 
          <div class='lista'>
