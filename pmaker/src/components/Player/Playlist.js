@@ -19,14 +19,11 @@ import Controls from './Controls';
 import Details from './Details';
 import Player from './Player';
 import canciones from './canciones'
-import canciones2 from './canciones2'
-import canciones3 from './canciones3'
-import canciones4 from './canciones4'
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import AddIcon from '@material-ui/icons/Add';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import MultiSelect from "react-multi-select-component";
 
 
@@ -78,11 +75,13 @@ function Playlist(props) {
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [count, setCount] = useState(0);
-  const [Canciones, setCanciones] = useState(canciones);
+  const [Canciones, setCanciones] = useState(options[numero_index].songs);
+  
   function remove_song(list){
     let filteredArray = options[numero_index].songs.filter(item => item !== list);
     options[numero_index].songs = filteredArray 
     setCanciones(filteredArray);
+    props.actualizar(filteredArray)
   }
   
   function selectPl(){
@@ -107,6 +106,7 @@ function Playlist(props) {
 
   function change_canciones(nombre_lista){
     setCanciones(nombre_lista.songs)
+    props.actualizar(nombre_lista.songs)
     setIndex(options.findIndex(todo => todo.nombre === nombre_lista.nombre))
     
   }
@@ -194,8 +194,10 @@ function Playlist(props) {
               {selectPl()}
             </List>
           </div>
-
+    
+    
     </div>
+    
   );
 }
 

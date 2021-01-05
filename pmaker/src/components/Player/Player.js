@@ -8,10 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 
+
+
 function RenderMini(props){
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState();
-
+    
     useEffect(() => {
         if (isPlaying) {
             audioEl.current.play();
@@ -19,6 +21,9 @@ function RenderMini(props){
             audioEl.current.pause();
         }
     });
+
+    
+    
 
     const SkipSong = (forwards = true) => {
         if (forwards) {
@@ -46,12 +51,17 @@ function RenderMini(props){
         }
     }
 
+    function handler2(argument) {
+        props.actualice(argument)
+      }
+
     
 
     return (
 
         <div className="c-player"> 
-            <Playlist /> 
+            <Playlist
+            actualizar = {handler2}/>
             <div className="min-player">       
                 <audio src={props.songs[props.currentSongIndex].src} ref={audioEl}></audio>
                 <MiniDetails song={props.songs[props.currentSongIndex]} isPlaying={isPlaying} setIsPlaying={setIsPlaying} SkipSong={SkipSong}/>
@@ -65,6 +75,7 @@ function RenderMini(props){
 function RenderFull(props){
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState();
+
 
     useEffect(() => {
         if (isPlaying) {
@@ -116,6 +127,10 @@ function RenderFull(props){
 
 
 function Player(props) {
+    
+    function handler1(argument) {
+        props.cambiar(argument)
+      }
     /*const audioEl = useRef(null);*/
     const [isPlaying, setIsPlaying] = useState(false);
     const [showPlaylist, setShowPlaylist] = useState(true);
@@ -125,25 +140,31 @@ function Player(props) {
 
 
     let btn_class = angleBtn ? "c-player--angledown" : "minialbumcover-button";
-
+    //if(canciones){
     return (
 
         <div>
             <button className={btn_class} onClick={HandleClick}>  
                 <FontAwesomeIcon icon={faAngleDown} size = '2x'/>
             </button>
-            {showPlaylist ? <RenderMini             currentSongIndex={props.currentSongIndex} 
+            
+  
+            {showPlaylist ? <RenderMini             actualice = {handler1}        
+                                                    currentSongIndex={props.currentSongIndex} 
                                                     setCurrentSongIndex={props.setCurrentSongIndex} 
                                                     nextSongIndex={props.nextSongIndex} 
                                                     songs={props.songs}
                                                     isPlaying={props.isPlaying}/> 
-                          : <RenderFull             currentSongIndex={props.currentSongIndex} 
+                          : <RenderFull             actualice = {handler1}             
+                                                    currentSongIndex={props.currentSongIndex} 
                                                     setCurrentSongIndex={props.setCurrentSongIndex} 
                                                     nextSongIndex={props.nextSongIndex} 
                                                     songs={props.songs}
                                                     isPlaying={props.isPlaying}/>}
+        
         </div>
-    )
+    )//}
+    //else{return null}
 }
 
 export default Player;
