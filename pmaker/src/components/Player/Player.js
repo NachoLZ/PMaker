@@ -7,6 +7,7 @@ import Playlist from './Playlist';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
+
 function RenderMini(props){
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState();

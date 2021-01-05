@@ -1,4 +1,6 @@
-const canciones = [ 
+
+
+const canciones =[ 
     {
     title: "Forget me too ft. Halsey",
     artist: "Machine Gun Kelly",
@@ -17,6 +19,6 @@ const canciones = [
     img_src: "./images/song-3.jpg",
     src: "./music/on-n-on.mp3",
   }
-]
+] 
 
 export default canciones;
