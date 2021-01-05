@@ -63,16 +63,16 @@ function generate(element) {
 
 
 
-const options = [{nombre: "Ejemplo", songs:canciones}];
+var options = [{nombre: "Ejemplo", songs:canciones}];
 
 
 function Playlist(props) {
-  let numero_index=0;
+  
+  const [numero_index,setIndex] = useState(0)
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [count, setCount] = useState(0);
   const [Canciones, setCanciones] = useState(canciones);
-
   function remove_song(list){
     let filteredArray = options[numero_index].songs.filter(item => item !== list);
     options[numero_index].songs = filteredArray 
@@ -103,7 +103,8 @@ function Playlist(props) {
 
   function change_canciones(nombre_lista){
     setCanciones(nombre_lista.songs)
-    numero_index = options.findIndex(todo => todo.nombre === nombre_lista.nombre);
+    setIndex(options.findIndex(todo => todo.nombre === nombre_lista.nombre))
+    
   }
 
   function playlist_icon(nombre_lista){
@@ -135,6 +136,12 @@ function Playlist(props) {
     setCount(options.push({nombre:nueva_lista,songs:canciones}));}
   }
 
+  function eliminar_playlist(){
+    options.splice(numero_index, 1);
+    
+    
+    setCount(count-1)
+  }
 
   return (
     <div className={classes.root}>
@@ -156,7 +163,7 @@ function Playlist(props) {
         <div class='wrapper'><Button disabled >Compartir</Button></div>
         <div class='wrapper'><Button disabled >Editar</Button></div>
         <div class='wrapper'><Button onClick = {myfunctionx}  >Descargar</Button></div>
-        <div class='wrapper'><Button onClick = {() => remove_song(Canciones)} >Eliminar</Button></div>
+        <div class='wrapper'><Button onClick = {() => eliminar_playlist()} >Eliminar</Button></div>
       </Container>
 
          <div className={classes.demo}>
