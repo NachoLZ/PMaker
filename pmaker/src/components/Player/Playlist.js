@@ -27,6 +27,7 @@ import Container from '@material-ui/core/Container';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import AddIcon from '@material-ui/icons/Add';
 import { useState } from 'react';
+import MultiSelect from "react-multi-select-component";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +57,9 @@ function generate(element) {
 }
 
 
-
+function get_name(cancionx){
+  return {label:cancionx.title,value:cancionx.title};
+}
 
 
 
@@ -64,10 +67,13 @@ function generate(element) {
 
 
 var options = [{nombre: "Ejemplo", songs:canciones}];
+const options2 = canciones.map(get_name);
 
 
 function Playlist(props) {
-  
+  const[modal,setmodal] = useState(false);
+  const[nombrex,setnombre] = useState("s")
+  const [selected, setSelected] = useState([]);
   const [numero_index,setIndex] = useState(0)
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
@@ -122,8 +128,13 @@ function Playlist(props) {
   function create_playlist(){
     const enteredName = prompt('Nombre de la lista');
     if(enteredName != null){
-      
-    change_options(enteredName);}
+      setmodal(true);
+      setnombre(enteredName)
+    }
+  }
+
+  function obtener_canciones(lista){
+    return(canciones[canciones.findIndex(todo => todo.title === lista.value)])
   }
 
   function change_options(nueva_lista){
@@ -131,19 +142,33 @@ function Playlist(props) {
       alert("No puedes agregar más\nDebes eliminar una lista.")
     }
     else{
-    setCount(options.push({nombre:nueva_lista,songs:canciones}));}
+      setmodal(false)
+      const newlist = selected.map(obtener_canciones)
+      setCount(options.push({nombre:nombrex,songs:newlist}));}
   }
 
   function eliminar_playlist(){
     options.splice(numero_index, 1);
-    
-    
     setCount(count-1)
   }
 
   return (
     <div className={classes.root}>
-      <Container>
+    {modal ?
+   
+   <div>
+   <h1>Selecciona canciones</h1>
+   <MultiSelect
+     options={options2}
+     value={selected}
+     onChange={setSelected}
+     labelledBy={"Select"}
+   />
+   <IconButton onClick ={() => change_options()} aria-label="add an alarm">
+         <AddIcon />
+       </IconButton>
+   </div>
+      :<Container>
       {options.map(playlist_icon)}
       <div class="wrapper">
         <div class="botonLista" align='center'>
@@ -156,7 +181,7 @@ function Playlist(props) {
         </div>
       </div>
 
-      </Container>
+      </Container>}
       <Container class='opciones-cont'>
         <Button class='opciones' disabled >Compartir</Button>      
         <Button class='opciones' disabled >Editar</Button>
