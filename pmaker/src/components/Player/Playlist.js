@@ -70,6 +70,7 @@ function Playlist(props) {
     options[numero_index].songs = filteredArray 
     setCanciones(filteredArray);
     props.actualizar(filteredArray)
+    props.cambiar_index(0)
   }
 
   function actualizar_index(cancion){
@@ -80,21 +81,21 @@ function Playlist(props) {
     return(       
     Canciones.map((data)=>
             generate(
-              <IconButton onClick = {() => actualizar_index(data)}>
+              
               <ListItem>
-                
+                <IconButton onClick = {() => actualizar_index(data)}>
                 <ListItemText
                   
                   disableTypography
                   primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
                   secondary={data.artist}
                 />
-                 
+                 </IconButton>
                 <IconButton onClick ={() => remove_song(data)} aria-label="add an alarm">
                 <DeleteIcon />
                 </IconButton>
               </ListItem>
-              </IconButton>
+              
             )
           ) )  
     }
