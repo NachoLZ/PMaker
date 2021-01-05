@@ -83,7 +83,6 @@ function Playlist(props) {
     return(       
     Canciones.map((data)=>
             generate(
-              <Container>
               <ListItem>
                 <ListItemText
 
@@ -94,10 +93,9 @@ function Playlist(props) {
                 <IconButton onClick ={() => remove_song(data)} aria-label="add an alarm">
                 <DeleteIcon />
                 </IconButton>
-              </ListItem>,
-              </Container>
+              </ListItem>
             )
-          ) )     
+          ) )  
     }
   
 
@@ -166,7 +164,7 @@ function Playlist(props) {
         <div ><Button class='opciones' onClick = {() => eliminar_playlist()} >Eliminar</Button></div>
       </Container>
 
-         <div className={"lista"}>
+         <div class='lista'>
             <List dense={dense}>
               {selectPl()}
             </List>

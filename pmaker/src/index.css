@@ -185,13 +185,24 @@ body {
     color: #e92d2d;
     
 }
-.lista {
-    overflow-y: scroll;
-    height: 430px;
-    width: 350px;
-    scroll-behavior: smooth;
 
+.lista {
+    overflow-y:auto;
+    height: 430px;
+    width: 340px;
+    margin-left: -15px;
+    
 }
+
+.lista::-webkit-scrollbar{
+    width: 6px;
+    scroll-behavior: smooth;
+    scrollbar-arrow-color: transparent;
+}
+.lista::-webkit-scrollbar-thumb {
+    background-color: rgb(207, 205, 205);    /* color of the scroll thumb */
+    border-radius: 25px;       /* roundness of the scroll thumb */
+  }
 
 .c-player--minicontrols .miniplay-btn {
     position: absolute;

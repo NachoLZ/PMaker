@@ -14,14 +14,35 @@ const canciones =[
   },
   {
     title: "PruebaPl2",
-    artist: "prubea123",
+    artist: "prueba123",
     img_src: "./images/song-3.jpg",
     src: "./music/on-n-on.mp3",
 
   },
   {
-    title: "PruebaPl2",
-    artist: "prubea123",
+    title: "PruebaPl3",
+    artist: "prueba123",
+    img_src: "./images/song-3.jpg",
+    src: "./music/on-n-on.mp3",
+
+  },
+  {
+    title: "PruebaPl4",
+    artist: "prueba123",
+    img_src: "./images/song-3.jpg",
+    src: "./music/on-n-on.mp3",
+
+  },
+  {
+    title: "PruebaP5",
+    artist: "prueba13",
+    img_src: "./images/song-3.jpg",
+    src: "./music/on-n-on.mp3",
+
+  },
+  {
+    title: "PruebaP6",
+    artist: "prueba14",
     img_src: "./images/song-3.jpg",
     src: "./music/on-n-on.mp3",
 
