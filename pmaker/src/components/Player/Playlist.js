@@ -194,7 +194,7 @@ function Playlist(props) {
         <div class='wrapper'><Button disabled  >Eliminar</Button></div>
       </Container>
 
-         <div className={classes.demo}>
+         <div className={"lista"}>
             <List dense={dense}>
               {selectPl(Plactive)}
             </List>

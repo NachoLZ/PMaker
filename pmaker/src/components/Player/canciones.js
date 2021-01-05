@@ -1,5 +1,5 @@
 const canciones = [ 
-    {
+  {
     title: "Forget me too ft. Halsey",
     artist: "Machine Gun Kelly",
     img_src: "./images/song-1.jpg",
@@ -16,7 +16,15 @@ const canciones = [
     artist: "prubea123",
     img_src: "./images/song-3.jpg",
     src: "./music/on-n-on.mp3",
-  }
+  },
+  {
+    title: "PruebaPl2",
+    artist: "prubea123",
+    img_src: "./images/song-3.jpg",
+    src: "./music/on-n-on.mp3",
+  },
+  
+
 ]
 
 export default canciones;

@@ -24,6 +24,8 @@ body {
     padding: 50px;
     border-radius: 16px;
     box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.1), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
+    width: 400px;
+    height: 710px;
 }
 
 
@@ -112,9 +114,10 @@ body {
 
 
 .c-player--minidetails .minidetails-img img {
+    margin-top: 10px;
     display: left;
-    width: 80%;
-    max-width: 55px;
+    width: 100%;
+    max-width: 50px;
     border-radius: 25%;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.4);
 }
@@ -127,23 +130,28 @@ body {
     left: -10px;
     right: -px;
     bottom: -25px;
+    
 }
 
 .c-player--minidetails .minidetails-title {
     color: rgb(0, 0, 0);
-    font-size: 14px;
+    font-size: 16px;
     /*text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.4);*/
     text-align: start;
     margin-bottom: 5px;
-    margin-top:5px;
+    margin-top: 15px;
+    width: 200px;
+    margin-left: 15px;
+
 }
 
 .c-player--minidetails .minidetails-artist {
     color: rgb(128, 127, 127);
-    font-size: 12px;
+    font-size: 14px;
     /*text-shadow: 2px 2px 4px rgba(102, 102, 102, 0.8), -2px -2px 4px rgba(255,255,255,0.4);*/
     text-align: start;
     margin-bottom: 10px;
+    margin-left: 15px;
 }
 
 .c-player--controls {
@@ -155,13 +163,25 @@ body {
 
 .c-player--minicontrols {
     display: flex;
+    position: absolute;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: row;
     margin-bottom: 0px;
+    margin-top: 15px;
+    margin-left: 200px;
+    
+}
+
+
+
+.lista {
+    overflow-y: scroll;
+    height: 400px;
 }
 
 .c-player--minicontrols .miniplay-btn {
+    position: absolute;
     margin-top: 13px;
     margin-left: 90px;
     border: none;
@@ -174,14 +194,14 @@ body {
 
 .minialbumcover-button {
     position:absolute;
-    margin-left: 52px;
-    margin-top: 355px;
-    border-radius: 50%;
+    margin-left: 53px;
+    margin-top: 615px;
+    border-radius: 80%;
     border: none;
     outline: none;
     background-color: transparent;
-    color: transparent;
-    font-size: 33px;
+    color:transparent;
+    font-size: 36px;
     cursor: pointer;
 }
 .c-player--controls .play-btn {
