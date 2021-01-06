@@ -77,26 +77,44 @@ function Playlist(props) {
     props.cambiar_index(options[numero_index].songs.findIndex(todo => todo.title === cancion.title))
   }
 
-
+ 
   function selectPl(){
     return(       
-    Canciones.map((data)=>
+    Canciones.map((data) => {if(options[numero_index].songs.findIndex(todo => todo.title === data.title) == props.current_index) 
+          return(
             generate(
               <ListItem>
                 <IconButton onClick = {() => actualizar_index(data)}>
                 <ListItemText
-                  
-                  disableTypography
-                  primary={<Typography class='primarysongtext'>{data.title}</Typography>}
-                  secondary={<Typography class='secondarysongtext'>{data.artist}</Typography>}
-                />
-                 </IconButton>
-                <IconButton class= 'basurero' onClick ={() => remove_song(data)} aria-label="add an alarm">
-                <DeleteIcon />
+                   disableTypography
+                   primary={<Typography style={{ color: 'blue' }} class='primarysongtext'>{data.title}</Typography>}
+                   secondary={<Typography class='secondarysongtext'>{data.artist}</Typography>}
+                 />
+                  </IconButton>
+                 <IconButton class= 'basurero' onClick ={() => remove_song(data)} aria-label="add an alarm">
+                 <DeleteIcon />
                 </IconButton>
-              </ListItem>
-              
-            )
+              </ListItem>))
+            else {return(
+              generate(
+                <ListItem>
+                  <IconButton onClick = {() => actualizar_index(data)}>
+                  <ListItemText
+                    
+                    disableTypography
+                    primary={<Typography class='primarysongtext'>{data.title}</Typography>}
+                    secondary={<Typography class='secondarysongtext'>{data.artist}</Typography>}
+                  />
+                   </IconButton>
+                  <IconButton class= 'basurero' onClick ={() => remove_song(data)} aria-label="add an alarm">
+                  <DeleteIcon />
+                  </IconButton>
+                </ListItem>))
+            }
+          }
+            
+          
+         
           ) )  
     }
   
@@ -127,7 +145,7 @@ function Playlist(props) {
     return(
     <div class="wrapper" onClick={() => change_canciones(nombre_lista)}>
           <div align='center'>
-            <IconButton 
+            <IconButton class= 'boton-lista'
              aria-label="add an alarm" class='apretado'>
               <MusicNoteIcon />
             </IconButton>

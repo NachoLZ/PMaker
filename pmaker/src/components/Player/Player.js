@@ -63,6 +63,7 @@ function RenderMini(props){
 
         <div className="c-player"> 
             <Playlist
+            current_index = {props.currentSongIndex}
             cambiar_index = {handler_index}
             actualizar = {handler2}/>
             <div className="min-player">       
