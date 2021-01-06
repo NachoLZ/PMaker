@@ -82,7 +82,6 @@ function Playlist(props) {
     return(       
     Canciones.map((data)=>
             generate(
-              
               <ListItem>
                 <IconButton onClick = {() => actualizar_index(data)}>
                 <ListItemText
@@ -161,6 +160,7 @@ function Playlist(props) {
 
   function eliminar_playlist(){
     options.splice(numero_index, 1);
+    setIndex(0)
     setCount(count-1)
   }
 
