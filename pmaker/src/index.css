@@ -194,6 +194,7 @@ body {
     border-color: transparent;
     background-color: transparent;
     outline-color: transparent;
+    cursor: pointer;
 }
 
 .c-player--minidetails .minidetails-title {
