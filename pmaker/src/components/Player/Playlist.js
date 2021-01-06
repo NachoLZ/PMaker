@@ -87,7 +87,7 @@ function Playlist(props) {
                 <IconButton onClick = {() => actualizar_index(data)}>
                 <ListItemText
                    disableTypography
-                   primary={<Typography style={{ color: 'blue' }} class='primarysongtext'>{data.title}</Typography>}
+                   primary={<Typography style={{ color: "#FF2D55" }} class='primarysongtextsel'>{data.title}</Typography>}
                    secondary={<Typography class='secondarysongtext'>{data.artist}</Typography>}
                  />
                   </IconButton>
