@@ -184,7 +184,7 @@ function Playlist(props) {
    </div>
       :<Container class='playlistcont'>
       {options.map(playlist_icon)}
-      <div class="wrapper">
+      <div class="wrapper" >
         <div class="botonLista" align='center'>
           <IconButton class='addico' onClick ={() => create_playlist()} aria-label="add an alarm">
             <AddIcon />

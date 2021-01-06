@@ -155,11 +155,17 @@ body {
 }
 
 .playlistcont{
-    margin-top: -22px;
+    display:flex;
+    flex-direction: row;
+    margin-top: -12px;
+    overflow-x: auto;
+    width: 300px;
+    height: 80px;
+    
 }
 
 .addico{
-    margin-top: 20px;
+    
     background-color: transparent;
     cursor: pointer;
     outline-color: transparent;
@@ -233,7 +239,7 @@ body {
 .opciones-cont{
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: -10px;
 }
 
 
@@ -260,6 +266,7 @@ body {
     outline: transparent;
     border-color: transparent;
     cursor: pointer;
+    background-color: transparent;
 
 
 }
@@ -317,6 +324,7 @@ body {
     font-size: 36px;
     cursor: pointer;
 }
+
 .c-player--controls .play-btn {
     display: flex;
     margin: 0 30px;
