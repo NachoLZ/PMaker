@@ -76,7 +76,8 @@ function Playlist(props) {
   function actualizar_index(cancion){
     props.cambiar_index(options[numero_index].songs.findIndex(todo => todo.title === cancion.title))
   }
-  
+
+
   function selectPl(){
     return(       
     Canciones.map((data)=>
@@ -87,11 +88,11 @@ function Playlist(props) {
                 <ListItemText
                   
                   disableTypography
-                  primary={<Typography style={{ color: '#e92d2d' }}>{data.title}</Typography>}
-                  secondary={data.artist}
+                  primary={<Typography class='primarysongtext'>{data.title}</Typography>}
+                  secondary={<Typography class='secondarysongtext'>{data.artist}</Typography>}
                 />
                  </IconButton>
-                <IconButton onClick ={() => remove_song(data)} aria-label="add an alarm">
+                <IconButton class= 'basurero' onClick ={() => remove_song(data)} aria-label="add an alarm">
                 <DeleteIcon />
                 </IconButton>
               </ListItem>
@@ -112,8 +113,8 @@ function Playlist(props) {
     if(options[numero_index]  == nombre_lista){
     return(
     <div class="wrapper" onClick={() => change_canciones(nombre_lista)}>
-          <div class="botonLista" align='center'>
-            <IconButton style ={{background:"#F00"}}
+          <div align='center'>
+            <IconButton class='boton-lista'
              aria-label="add an alarm">
               <MusicNoteIcon />
             </IconButton>
@@ -126,9 +127,9 @@ function Playlist(props) {
   else{
     return(
     <div class="wrapper" onClick={() => change_canciones(nombre_lista)}>
-          <div class="botonLista" align='center'>
+          <div align='center'>
             <IconButton 
-             aria-label="add an alarm">
+             aria-label="add an alarm" class='apretado'>
               <MusicNoteIcon />
             </IconButton>
           </div>
@@ -168,22 +169,24 @@ function Playlist(props) {
     {modal ?
    
    <div>
-   <h1>Selecciona canciones</h1>
+   <h1 class='titleselecciona'>Selecciona canciones:</h1>
    <MultiSelect
      options={options2}
      value={selected}
      onChange={setSelected}
      labelledBy={"Select"}
+     className='dropdown'
+
    />
-   <IconButton onClick ={() => change_options()} aria-label="add an alarm">
-         <AddIcon />
+   <IconButton class='addicod' onClick ={() => change_options()} aria-label="add an alarm">
+         <AddIcon  />
        </IconButton>
    </div>
-      :<Container>
+      :<Container class='playlistcont'>
       {options.map(playlist_icon)}
       <div class="wrapper">
         <div class="botonLista" align='center'>
-          <IconButton onClick ={() => create_playlist()} aria-label="add an alarm">
+          <IconButton class='addico' onClick ={() => create_playlist()} aria-label="add an alarm">
             <AddIcon />
           </IconButton>
         </div>

@@ -46,6 +46,13 @@ const canciones =[
     img_src: "./images/song-3.jpg",
     src: "./music/on-n-on.mp3",
 
+  },
+  {
+    title: "PruebaP6",
+    artist: "prueba14",
+    img_src: "./images/song-3.jpg",
+    src: "./music/on-n-on.mp3",
+
   }
   
   

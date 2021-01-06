@@ -113,7 +113,7 @@ body {
 
 
 .c-player--minidetails .minidetails-img img {
-    margin-top: 10px;
+    margin-top: 37px;
     display: left;
     width: 100%;
     max-width: 50px;
@@ -132,13 +132,71 @@ body {
     
 }
 
+.boton-lista{
+    border-color: transparent;
+    color: rgb(231, 27, 27);
+    background-color: transparent;
+    cursor: pointer;
+    outline-color: transparent;
+    border-color: transparent;
+    
+    
+}
+
+.titleselecciona{
+    font-size: 25px;
+    margin-top: -20px;
+}
+
+.dropdown{
+    margin-top: 10px;
+    width: 250px;
+
+}
+
+.playlistcont{
+    margin-top: -22px;
+}
+
+.addico{
+    margin-top: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    outline-color: transparent;
+    border-color: transparent;
+    color: gray;
+    
+
+
+}
+
+.addicod{
+    
+    position:absolute;
+    background-color: transparent;
+    cursor: pointer;
+    outline-color: transparent;
+    border-color: transparent;
+    color: gray;
+    margin-left: 272px;
+    margin-top: -35px;
+
+}
+
+.apretado{
+    color: gray;
+    border-color: transparent;
+    background-color: transparent;
+    outline-color: transparent;
+}
+
 .c-player--minidetails .minidetails-title {
     color: rgb(0, 0, 0);
     font-size: 16px;
     /*text-shadow: 2px 2px 4px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.4);*/
     text-align: start;
     margin-bottom: 5px;
-    margin-top: 15px;
+    margin-top: 42px;
     width: 200px;
     margin-left: 15px;
 
@@ -193,6 +251,30 @@ body {
     
 }
 
+
+.basurero{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 270px;
+    color: gray;
+    outline: transparent;
+    border-color: transparent;
+    cursor: pointer;
+
+
+}
+
+.primarysongtext{
+    font-size: 18px;
+    color: rgb(231, 27, 27);
+    position: relative;
+}
+
+.secondarysongtext{
+    font-size: 14px;
+    color: black;
+    position: absolute;
+}
 .lista {
     overflow-y:auto;
     height: 430px;
@@ -213,7 +295,7 @@ body {
 
 .c-player--minicontrols .miniplay-btn {
     position: absolute;
-    margin-top: 13px;
+    margin-top: 40px;
     margin-left: 90px;
     border: none;
     outline: none;
@@ -226,7 +308,7 @@ body {
 .minialbumcover-button {
     position:absolute;
     margin-left: 53px;
-    margin-top: 615px;
+    margin-top: 642px;
     border-radius: 80%;
     border: none;
     outline: none;
