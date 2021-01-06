@@ -1,1 +1,0 @@
-declare module '@open-wc/testing-helpers/index.js'
